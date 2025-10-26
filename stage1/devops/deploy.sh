@@ -10,16 +10,16 @@
 # part 1: functions
 # collect user inputs
 
-github-repo = read "your github name"
-echo $github-repo
-while getopts "g:p:b:s" opt; do
+
+while getopts "g:p:b:s:" opt; do
     case $opt in
-        g) gh-repo="$OPTARG" ;;
-        p) pat=$"OPTARG" ;;
+        g) gh_repo="$OPTARG" ;;
+        p) pat="$OPTARG" ;;
         b) branch="$OPTARG" ;;
         s) ssh="$OPTARG" ;;
         *) echo "Usage $0 -g github-repo URL -p PAT -b Branch -s SSH values (ssh -i path/to/ssh-key username@server-ip" >&2; exit 1 ;;
     esac
 done
 
-echo "github repo: $gh-repo"
+# read -p "Enter repo: " gh_repo
+echo "github repo: $gh_repo :: $pat :: $branch :: $ssh"
