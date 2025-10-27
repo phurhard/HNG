@@ -17,7 +17,7 @@ while getopts "g:p:b:s:" opt; do
         p) pat="$OPTARG" ;;
         b) branch="$OPTARG" ;;
         s) ssh="$OPTARG" ;;
-        *) echo "Usage $0 -g github-repo URL -p PAT -b Branch -s SSH values (ssh -i path/to/ssh-key username@server-ip" >&2; exit 1 ;;
+        *) echo "Usage $0 -g githubRepo URL -p PAT -b Branch -s SSH values (ssh -i path/to/ssh-key username@server-ip" >&2; exit 1 ;;
     esac
 done
 
