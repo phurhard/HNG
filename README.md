@@ -8,6 +8,7 @@ A minimal FastAPI service that exposes a single endpoint to return user profile 
 - Language: Python 3.10+
 
 ## Table of Contents
+
 - [Project Structure](#project-structure)
 - [Features](#features)
 - [Requirements](#requirements)
@@ -35,12 +36,13 @@ stage0/
 ## Features
 
 - GET `/me` returns:
+
   - status: "success"
   - user: { email, name, stack }
   - timestamp: ISO-8601 UTC
   - fact: random cat fact (fallback string when no fact is available)
-
 - Async I/O:
+
   - Uses `httpx.AsyncClient` with a timeout to call the Cat Facts API.
   - Fully async endpoint for efficient concurrency.
 
@@ -51,6 +53,7 @@ stage0/
 - Internet access (to reach the Cat Facts API)
 
 Python packages (installed via pip):
+
 - fastapi
 - uvicorn[standard]
 - httpx
@@ -58,19 +61,23 @@ Python packages (installed via pip):
 ## Setup
 
 1) Create and activate a virtual environment
+
 - Linux/macOS:
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
 - Windows (PowerShell):
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
 2) Upgrade pip and install dependencies
+
 ```bash
 python -m pip install --upgrade pip
 pip install fastapi uvicorn[standard] httpx
@@ -79,6 +86,7 @@ pip install fastapi uvicorn[standard] httpx
 ## Running the Server
 
 From the repository root (where this README.md lives), run:
+
 ```bash
 uvicorn stage0.BE.app:app --reload --host 0.0.0.0 --port 8000
 ```
@@ -88,18 +96,21 @@ uvicorn stage0.BE.app:app --reload --host 0.0.0.0 --port 8000
 - ReDoc: http://localhost:8000/redoc
 
 Notes:
+
 - `--reload` is for development only; omit it in production.
 - The import path `stage0.BE.app:app` maps to the `app` instance in `stage0/BE/app.py`.
 
 ## API Reference
 
 ### GET /me
+
 Returns user details, an ISO-8601 UTC timestamp, and a cat fact.
 
 - Response: 200 OK on success (always when internal logic completes)
 - Content-Type: application/json
 
 Example successful response:
+
 ```json
 {
   "status": "success",
@@ -114,22 +125,26 @@ Example successful response:
 ```
 
 Behavioral notes:
+
 - If the Cat Facts API responds successfully but without a `fact` field, the service returns `"fact": "No cat fact available"`.
 - If the HTTP request to the Cat Facts API fails (network error, timeout, non-2xx with raise_for_status), FastAPI will return a 500 Internal Server Error by default because the exception propagates. See Roadmap for improving this with graceful error handling.
 
 ## Examples
 
 Using curl:
+
 ```bash
 curl -s http://localhost:8000/me | jq
 ```
 
 Using HTTPie:
+
 ```bash
 http GET :8000/me
 ```
 
 Open in browser:
+
 - http://localhost:8000/me
 - http://localhost:8000/docs
 - http://localhost:8000/redoc
@@ -147,6 +162,7 @@ Open in browser:
   - Not configured. If a browser-based frontend will call this API, add `fastapi.middleware.cors.CORSMiddleware`.
 
 ### Minimal Code Walkthrough (stage0/BE/app.py)
+
 - `get_cat_fact()`:
   - Calls the Cat Facts endpoint and returns `data.get("fact")`.
   - Raises for non-2xx responses.
@@ -187,7 +203,9 @@ Open in browser:
   - Add a production-ready Dockerfile and containerization workflow.
 
 ### Example Dockerfile (optional)
+
 You can use this minimal Dockerfile as a starting point:
+
 ```dockerfile
 FROM python:3.11-slim
 
@@ -203,6 +221,7 @@ CMD ["uvicorn", "stage0.BE.app:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
 Build and run:
+
 ```bash
 docker build -t hng-stage0-backend .
 docker run --rm -p 8000:8000 hng-stage0-backend
@@ -225,3 +244,5 @@ No license file is present in this repository. If you intend to open-source, con
 - FastAPI: https://fastapi.tiangolo.com
 - httpx: https://www.python-httpx.org
 - Uvicorn: https://www.uvicorn.org
+
+Unfortuantely haven't been able to really write codes these past few days, so i just make some posts to keep up with the streak.
