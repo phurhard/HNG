@@ -246,3 +246,5 @@ No license file is present in this repository. If you intend to open-source, con
 - Uvicorn: https://www.uvicorn.org
 
 Unfortuantely haven't been able to really write codes these past few days, so i just make some posts to keep up with the streak.
+
+Same thing is happening again.
