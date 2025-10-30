@@ -248,3 +248,5 @@ No license file is present in this repository. If you intend to open-source, con
 Unfortuantely haven't been able to really write codes these past few days, so i just make some posts to keep up with the streak.
 
 Same thing is happening again.
+
+Hopefully, this is the last day i'll do this.Thinkinh of implementing this using express node, as that is a language i intent to learn. so i'll stop using python for this tasks and try using node express henceforth.
