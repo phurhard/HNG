@@ -252,3 +252,9 @@ Same thing is happening again.
 Hopefully, this is the last day i'll do this.Thinkinh of implementing this using express node, as that is a language i intent to learn. so i'll stop using python for this tasks and try using node express henceforth.
 
 Today was a lot and couldn't write a line of code, hopefully tomorrow is easier on me.
+
+
+06/11/2025 - 07/11/2025
+spent the better part of today grading submissions ofinterns hence couldn't write any code.
+
+i need to have an agent that would be checking my commits for the day and triggering a commit for me if i don't have oneup by 10pm each day.
