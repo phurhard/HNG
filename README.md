@@ -258,3 +258,7 @@ Today was a lot and couldn't write a line of code, hopefully tomorrow is easier 
 spent the better part of today grading submissions ofinterns hence couldn't write any code.
 
 i need to have an agent that would be checking my commits for the day and triggering a commit for me if i don't have oneup by 10pm each day.
+
+
+I am already tired of missing days and have to make up for it, it's draining.
+I need to create a good calender
